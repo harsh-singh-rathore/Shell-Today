@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import img from '../images/register.jpg';
 import instagram from '../images/instagram.png';
 import gmail from '../images/gmail.png';
 import '../styles/aboutus.css';
@@ -34,28 +33,50 @@ const Aboutus = () => {
         <div className="about_container">
             <div className="about__block">
                 <h2 className="about__title">About Us:</h2>
-                <p className="about__par">The CSI News is multifaceted digital media to helping citizens, consumers, business leaders. We publish independent reporting, rankings, data journalism and advice that has earned the trust of our readers and users. Thank you for visiting</p>
-                <div className="ourself">
-                    <span className="me">
-                        <img src={img} className="about__img" alt="profile"/>
-                        <h3 className="about__email">ishitaachauhan11@gmail.com</h3>
-                    </span>
-                    <span className="me">
-                        <img src={img} className="about__img" alt="profile"/>
-                        <h3 className="about__email">charvitardeshna@gmail.com</h3>
-                    </span>
-                    <span className="me">
-                        <img src={img} className="about__img" alt="profile"/>
-                        <h3 className="about__email">smitbhoraniya11@gmail.com</h3>
-                    </span>
+                <p className="about__par">
+                  The Shell Today Web Application with Integrated Map Feature is an innovative and game-changing platform that aims to provide users with 
+                  comprehensive and current information about the ever-evolving clean and sustainable energy sector. This software solution not only allows 
+                  users to stay updated with the latest news articles on green energy but also offers a unique spatial perspective through its integrated 
+                  map interface. By combining the power of dynamic article exploration with geographical insights, this platform empowers users to make 
+                  informed decisions and actively contribute to the global shift towards clean and sustainable energy sources.
+                </p>
+                <div className='ourself-outer'>
+                  <div className="ourself">
+                      <span className="me">
+                          <i className="fa fa-envelope"></i>
+                          <p className="about__email">suyash.tyagi@shell.com</p>
+                      </span>
+                      <span className="me">
+                          <i className="fa fa-envelope"></i>
+                          <p className="about__email">vridhi.kamath@shell.com</p>
+                      </span>
+                      <span className="me">
+                          <i className="fa fa-envelope"></i>
+                          <p className="about__email">nayonika.arora@shell.com</p>
+                      </span>
+                  </div>
+                  <div className="ourself">
+                      <span className="me">
+                          <i className="fa fa-envelope"></i>
+                          <p className="about__email">harsh.rathod@shell.com</p>
+                      </span>
+                      <span className="me">
+                          <i className="fa fa-envelope"></i>
+                          <p className="about__email">jaishnav.g@shell.com</p>
+                      </span>
+                      <span className="me">
+                          <i className="fa fa-envelope"></i>
+                          <p className="about__email">ritika.singh@shell.com</p>
+                      </span>
+                  </div>
                 </div>
-                <div className="about__social">
+                {/* <div className="about__social">
                     <img src={instagram} alt="instagram" className="about__simg" />
                     <img src={gmail} alt="gmail" className="about__simg" />
                 </div>
-                <p className="about__copy">©Copyright 2021 CSI NEWS</p>
+                <p className="about__copy">©Copyright 2023 Shell Today</p> */}
             </div>
-            <div className="about__block">
+            {/* <div className="about__block">
                 <h2 className="about__title">Contact Us:</h2>
                 <form className="about__form">
                     <label htmlFor="email" className="about__label">Email Address:</label>
@@ -83,7 +104,7 @@ const Aboutus = () => {
                     }
                     <button onClick={handleSubmit} className="btn btn--primary about__btn">Feedback</button>
                 </form>
-            </div>
+            </div> */}
         </div>
     )
 };
