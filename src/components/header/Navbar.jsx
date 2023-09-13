@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { categorys } from '../../utils/categorys';
 import jwt from 'jsonwebtoken';
 import { getDataAPI } from '../../utils/fetchData';
-import logo from '../../images/csi_logo.png';
+import logo from '../../images/Shell_logo.png';
 
 
 const Navbar = () => {
@@ -63,7 +63,7 @@ const Navbar = () => {
                     <li className="nav__item"><Link to="/"><Logout /></Link></li>
                 </ul>
             </nav>
-            <div className="category">
+            {/* <div className="category">
                 <ul className="sub__list block-domain__prices">
                     {
                         categorys.map(cate =>(
@@ -71,7 +71,7 @@ const Navbar = () => {
                         ))
                     }
                 </ul>
-            </div>
+            </div> */}
         </header>
     )
 };

@@ -7,7 +7,12 @@ const Home = () => {
     
     useEffect(() => {
         async function fetchData() {
-            const res = await getDataAPI('allNews');
+            // const res = await getDataAPI('allNews');
+            const res = {
+                'data': {
+                    'news': [{'images': ['https://en.wikipedia.org/wiki/Shell_plc#/media/File:Shell_logo.svg'],'title': "what a news", 'des': " THIS is descript"}, {'images': ['https://en.wikipedia.org/wiki/Shell_plc#/media/File:Shell_logo.svg'],'title': "this is news", 'des': "this is descpritpon"}]
+                }
+            }
             setNews(res.data.news);
         };
         fetchData();

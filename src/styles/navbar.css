@@ -6,7 +6,8 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 0.5rem;
-  background: #d3d3d3;
+  background: #efe8e8;
+  /* background: #d3d3d3; */
 }
 
 .nav__list {
@@ -30,7 +31,7 @@
 
 .nav__item > a {
   text-decoration: none;
-  color: #ba0c2e;
+  color: #ED1C24;
   transition: color 0.3s;
 }
 
@@ -120,7 +121,7 @@
 }
 
 .sub__list > a {
-  color: #fff;
+  color: #ffffff;
 }
 
 /* Badge */
@@ -147,11 +148,11 @@
 
 .badge:hover {
   color: #eee;
-  background: #ba0c2e;
+  background: #ED1C24;
 }
 
 .badge--primary {
-  background: #ba0c2e;
+  background: #ED1C24;
   color: #fff;
 }
 
@@ -225,7 +226,7 @@
 }
 
 .btn--primary {
-  background: #ba0c2e;
+  background: #ED1C24;
   color: #fff;
   transition: all 0.3s;
 }
@@ -340,7 +341,7 @@
 }
 
 .icon--primary {
-  fill: #ba0c2e;
+  fill: #ED1C24;
 }
 
 .icon--secondary {

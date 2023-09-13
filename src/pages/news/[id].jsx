@@ -17,12 +17,14 @@ const News = () => {
     const [saved, setSaved] = useState();
     const [addCmnt, setAddCmnt] = useState(false);
     const [showComments, setShowComments] = useState([]);
-    const user_id = jwt.decode(localStorage.getItem("user")).id;
+    // const user_id = jwt.decode(localStorage.getItem("user")).id;
+    const user_id = 1;
     const [len, setLen] = useState();
     
     useEffect(() => {
         async function fetchData() {
             const res = await getDataAPI(`/news/${id}`);
+            console.log("DATA HEREEREE")
             setNews(res.data.news);
             setShowComments(res.data.comments);
             setLen(res.data.comments.length);
