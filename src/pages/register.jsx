@@ -10,7 +10,7 @@ import "../styles/register.css";
 
 const Register = () => {
     const state = {
-        username: '',
+        // username: '',
         email: '',
         password: '',
         cpassword: '',
@@ -35,8 +35,8 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("In handle")
-        if(isEmpty(username) || isEmpty(password))
-                return setUserData({...userData, err: "Please fill in all fields.", success: ''});
+        // if(isEmpty(username) || isEmpty(password))
+        //         return setUserData({...userData, err: "Please fill in all fields.", success: ''});
 
         if(!isEmail(email))
             return setUserData({...userData, err: "Invalid emails.", success: ''});
@@ -69,10 +69,10 @@ const Register = () => {
         <div className="container">
             <img className="reg__image" src={registerImage} alt="register page" />
             <main className="reg__main">
-                <h2 id="reg__title">CSI NEWS</h2>
-                <p className="reg__sub">Register to CSI NEWS</p>
+                <h2 id="reg__title">Shell Today</h2>
+                <p className="reg__sub">Register to Shell Today</p>
                 <form className="reg__form" onSubmit={handleSubmit}>
-                    <label className="reg__label" htmlFor="username">Username: </label>
+                    {/* <label className="reg__label" htmlFor="username">Username: </label>
                     <input
                         className="reg__input"
                         type="text"
@@ -82,7 +82,7 @@ const Register = () => {
                         style={{fontFamily: "Arial, FontAwesome"}}
                         onChange={handleChangeInput}
                         value={username}
-                    />
+                    /> */}
                     <label className="reg__label" htmlFor="email">Email Address: </label>
                     <input
                         className="reg__input"

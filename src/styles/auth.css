@@ -88,8 +88,8 @@
 }
 
 .login__btn:hover {
-  background: #d7ba27;
-  color: #f8f8f8;
+  background: #e9ed02;
+  color: black;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
