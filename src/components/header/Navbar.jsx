@@ -13,10 +13,19 @@ import logo from '../../images/csi_logo.png';
 const Navbar = () => {
     const [user, setUser] = useState([]);
     const { role } = user; 
-    const id = jwt.decode(localStorage.getItem("user")).id;
+    // const id = jwt.decode(localStorage.getItem("user")).id;
+    const id = 1;
     useEffect(() => {
         async function fetchData() {
-            const res = await getDataAPI(`user/${id}`);
+            // const res = await getDataAPI(`user/${id}`);
+            const res = {
+                "data": {
+                    "user": {
+                        'username': "hsr",
+                        'name': "hsr"
+                    }
+                }
+            } 
             setUser(res.data.user);
         }
         fetchData();
