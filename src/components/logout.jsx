@@ -6,7 +6,13 @@ import '../styles/logout.css';
 const Logout = () => {
     const logout = async () => {
         localStorage.removeItem('firstLogin');
-        await postDataAPI('logout');
+        localStorage.removeItem("user");
+        localStorage.removeItem("username");
+        localStorage.removeItem("password");
+        localStorage.removeItem("role");
+        localStorage.removeItem("name");
+        localStorage.removeItem("userid");
+        //await postDataAPI('logout');
         window.location.href = "/";
     }
     
