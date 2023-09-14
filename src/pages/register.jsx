@@ -72,17 +72,17 @@ const Register = () => {
                 <h2 id="reg__title">Shell Today</h2>
                 <p className="reg__sub">Register to Shell Today</p>
                 <form className="reg__form" onSubmit={handleSubmit}>
-                    {/* <label className="reg__label" htmlFor="username">Username: </label>
+                    <label className="reg__label" htmlFor="username">Name: </label>
                     <input
                         className="reg__input"
                         type="text"
                         id="username"
                         name="username"
-                        placeholder=" &#xF007;  Username"
+                        placeholder=" &#xF007;  Name"
                         style={{fontFamily: "Arial, FontAwesome"}}
                         onChange={handleChangeInput}
                         value={username}
-                    /> */}
+                    />
                     <label className="reg__label" htmlFor="email">Email Address: </label>
                     <input
                         className="reg__input"
