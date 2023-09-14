@@ -1,11 +1,22 @@
 import axios from 'axios';
 
-export const getDataAPI = async (url, token) => {
-    const res = await axios.get(`http://localhost:5000/api/${url}`, {
-        headers: { Authorization: token }
-    })
+export const getDataAPI = async (url) => {
+    const res = await axios.get(`https://localhost:7173/${url}`
+    // , {
+    //     // https://localhost:7173/NewsArticle
+    //     // headers: { Authorization: token }
+    // }
+    )
     return res;
 };
+export const loginAPI = async(body) => {
+    const res = await axios.get(`https://localhost:7173/User`, {params:body })
+    return res;
+}
+export const registerAPI = async(body) => {
+    const res = await axios.post(`https://localhost:7173/User`, {params:body })
+}
+
 
 export const postDataAPI = async (url, post,token) => {
     const res = await axios.post(`http://localhost:5000/api/${url}`, post,{
