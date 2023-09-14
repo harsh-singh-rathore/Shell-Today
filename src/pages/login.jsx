@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import loginImage from '../images/login.jpg';
 import {isEmpty, isEmail, isLength} from './../utils/valid';
-import { postDataAPI } from './../utils/fetchData';
+import { loginAPI, postDataAPI } from './../utils/fetchData';
 import { showErrorMsg, showSuccessMsg } from '../components/Notification';
 
 import "../styles/auth.css";
@@ -40,17 +40,31 @@ const Login = () => {
         if(isLength(password))
             return setUserData({...userData, err: "Password must be at least 6 characters.", success: ''});
         try {
-            // const res = await postDataAPI('login', userData);
+            // const user = await postDataAPI('login', userData);
+            userData['username'] = userData.email;
+            // console.log(userData)
+
+            const user = await loginAPI(userData )
+
+
             const res = {
                 'data': { 
                     'msg': 'logged in',
                     'access_token' : 'loggedin'
                 }
             }
-            console.log(res);
+            console.log(user)
+            // console.log(res);
             setUserData({...userData, err: '', success: res.data.msg});
             localStorage.setItem("firstLogin", true);
             localStorage.setItem("user", res.data.access_token);
+            localStorage.setItem("username", user.data.username)
+            localStorage.setItem("password", user.data.password)
+            localStorage.setItem("role", user.data.rolid)
+            localStorage.setItem("name", user.data.name)
+            localStorage.setItem("userid", user.data.userid)
+            // localStorage.setItem("user", user.data)
+
             window.location.href = "/";
         } catch (err) {
             err.response.data.msg && setUserData({...userData, err: err.response.data.msg, success: ''});
