@@ -51,6 +51,9 @@ const Login = () => {
                 'data': { 
                     'msg': 'logged in',
                     'access_token' : 'loggedin'
+                },
+                'data1':{
+                    'msg': 'Incorrect password'
                 }
             }
             console.log(user)
@@ -67,6 +70,8 @@ const Login = () => {
 
             window.location.href = "/";
         } catch (err) {
+            console.log()
+            setUserData({err: 'Wrong username or password', success: ""});
             err.response.data.msg && setUserData({...userData, err: err.response.data.msg, success: ''});
         }
     }

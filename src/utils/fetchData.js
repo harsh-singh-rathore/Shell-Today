@@ -13,8 +13,9 @@ export const loginAPI = async(body) => {
     const res = await axios.get(`https://localhost:7173/User`, {params:body })
     return res;
 }
-export const registerAPI = async(body) => {
-    const res = await axios.post(`https://localhost:7173/User`, {params:body })
+export const signupAPI = async(body) => {
+    const res = await axios.post(`https://localhost:7173/User`, body)
+    return res;
 }
 
 
