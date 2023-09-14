@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getDataAPI } from './../utils/fetchData';
 import HomeCard from './HomeCard';
+import registerImage from '../images/register.jpg';
+
 const Home = () => {
     const [news, setNews] = useState([]);
     
@@ -10,7 +12,12 @@ const Home = () => {
             // const res = await getDataAPI('allNews');
             const res = {
                 'data': {
-                    'news': [{'images': ['https://en.wikipedia.org/wiki/Shell_plc#/media/File:Shell_logo.svg'],'title': "what a news", 'des': " THIS is descript"}, {'images': ['https://en.wikipedia.org/wiki/Shell_plc#/media/File:Shell_logo.svg'],'title': "this is news", 'des': "this is descpritpon"}]
+                    'news': [
+                        {'images': [registerImage],'title': "what a news", 'des': " THIS is descript"}, 
+                        {'images': [registerImage],'title': "this is news", 'des': "this is descpritpon"},
+                        {'images': [registerImage],'title': "this is news", 'des': "this is descpritpon"},
+                        {'images': [registerImage],'title': "this is news", 'des': "this is descpritpon"}
+                    ]
                 }
             }
             setNews(res.data.news);

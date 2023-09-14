@@ -5,7 +5,7 @@ const HomeCard = ({n}) => {
     return (
             <div className="card">
                 <div className="image">
-                    <img src={n.images[0].url} alt="news"/>
+                    <img src={n.images[0]} alt="news"/>
                 </div>
                 <div className="title">
                     <h1>{n.title}</h1>
