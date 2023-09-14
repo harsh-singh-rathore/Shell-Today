@@ -6,6 +6,10 @@ body {
   font-family: arial;
 }
 
+.card-outer {
+  display: flex;
+}
+
 .card {
   width: 20%;
   display: inline-block;

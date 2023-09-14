@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import instagram from '../images/instagram.png';
-import gmail from '../images/gmail.png';
 import '../styles/aboutus.css';
 import { postDataAPI } from '../utils/fetchData';
 
@@ -76,35 +74,6 @@ const Aboutus = () => {
                 </div>
                 <p className="about__copy">©Copyright 2023 Shell Today</p> */}
             </div>
-            {/* <div className="about__block">
-                <h2 className="about__title">Contact Us:</h2>
-                <form className="about__form">
-                    <label htmlFor="email" className="about__label">Email Address:</label>
-                    <input 
-                        className="about__input"
-                        type="text" 
-                        id="email"
-                        name="email"
-                        placeholder="Enter Email Address..."
-                        onChange={handleChangeInput}
-                        value={email}
-                    />
-                    <label htmlFor="msg" className="about__label">Message: </label>
-                    <textarea 
-                        className="about__textarea"
-                        type="text" 
-                        id="msg"
-                        name="msg"
-                        placeholder="Enter Message..."
-                        onChange={handleChangeInput}
-                        value={msg}
-                    />
-                    {
-                        success && <p className="about__succ">{contect.success}</p>
-                    }
-                    <button onClick={handleSubmit} className="btn btn--primary about__btn">Feedback</button>
-                </form>
-            </div> */}
         </div>
     )
 };
