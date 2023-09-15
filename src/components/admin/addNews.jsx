@@ -2,11 +2,20 @@ import React, { useState } from 'react';
 import { categorys } from '../../utils/categorys';
 import closeIcon from '../../images/delete.png';
 import addIcon from '../../images/add.png';
-import { postDataAPI } from '../../utils/fetchData';
+import { postArticleAPI, postDataAPI } from '../../utils/fetchData';
 import { imageUpload } from './../../utils/imageUpload';
 import jwt from 'jsonwebtoken';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
+
+function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth()+1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0')
+
+    const formatedDate = `${year}-${month}-${day}`
+    return formatedDate;
+}
 
 const AddNews = ({setAddNews}) => {
     const state = {
@@ -14,6 +23,7 @@ const AddNews = ({setAddNews}) => {
         link: '',
         location: '',
         thumbnail: '',
+        date:'',
         user: '',
         err: ''
     };
@@ -66,20 +76,27 @@ const AddNews = ({setAddNews}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let media = [];
-        if (images.length === 0)
-            return setNews({...news, err: "Please Add photo."});
+        
+        // let media = [];
+        // if (images.length === 0)
+        //     return setNews({...news, err: "Please Add photo."});
 
-        const id = jwt.decode(localStorage.getItem("user")).id;
+        // const id = jwt.decode(localStorage.getItem("user")).id;
         try {
-            if(images.length > 0) 
-            media = await imageUpload(images);
+            // if(images.length > 0) 
+            // media = await imageUpload(images);
             // await postDataAPI('addnews', { title, link, location, images: media, user: id});
-            await postDataAPI('addnews', { title, link, location, thumbnail, user: id});
+            try{
+                console.log(formatDate(selectedDate))
+            }catch(err) {
+                console.log('error hereererere')
+                console.log(err.message)
+            }
+            await postArticleAPI({ title, link, location, thumbnail, date:formatDate(selectedDate)});
         } catch (err) {
             err.response.data.msg && setNews({...news, err: err.response.data.msg});
         }
-        setImages([]);
+        // setImages([]);
         setAddNews(false);
     }
 
