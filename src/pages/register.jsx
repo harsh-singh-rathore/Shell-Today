@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import registerImage from '../images/register.jpg';
 import { isEmpty, isEmail, isLength, isMatch } from './../utils/valid';
-import { postDataAPI } from './../utils/fetchData';
+import { postDataAPI, signupAPI } from './../utils/fetchData';
 import { showErrorMsg, showSuccessMsg } from '../components/Notification';
 
 import "../styles/register.css"; 
@@ -50,15 +50,24 @@ const Register = () => {
 
         try {
             // const res = await postDataAPI('register', userData);
+            const userDataSignup = {
+                'name': userData.username,
+                'email': userData.email,
+                'password': userData.password
+            }
+            const user = await signupAPI(userDataSignup);
+
+            
             const res = {
                 'data': { 
-                    'msg': 'logged in',
+                    'msg': 'User Created',
                     'access_token' : 'loggedin'
                 }
             }
             setUserData({...userData, err: '', success: res.data.msg});
-            localStorage.setItem("firstLogin", true);
-            localStorage.setItem("user", res.data.access_token);
+            // localStorage.setItem("firstLogin", true);
+            // localStorage.setItem("user", res.data.access_token);
+
             window.location.href = "/";
         } catch (err) {
             err.response.data.msg && setUserData({...userData, err: err.response.data.msg, success: ''});
