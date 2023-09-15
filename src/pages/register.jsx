@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
 import registerImage from '../images/register.jpg';
-import { isEmpty, isEmail, isLength, isMatch } from './../utils/valid';
-import { postDataAPI, signupAPI } from './../utils/fetchData';
+import { isEmail, isLength, isMatch } from './../utils/valid';
+import { signupAPI } from './../utils/fetchData';
 import { showErrorMsg, showSuccessMsg } from '../components/Notification';
 
 import "../styles/register.css"; 
 
 const Register = () => {
     const state = {
-        // username: '',
         email: '',
         password: '',
         cpassword: '',
@@ -35,8 +33,6 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("In handle")
-        // if(isEmpty(username) || isEmpty(password))
-        //         return setUserData({...userData, err: "Please fill in all fields.", success: ''});
 
         if(!isEmail(email))
             return setUserData({...userData, err: "Invalid emails.", success: ''});
@@ -49,7 +45,6 @@ const Register = () => {
         console.log("Completed handles")
 
         try {
-            // const res = await postDataAPI('register', userData);
             const userDataSignup = {
                 'name': userData.username,
                 'email': userData.email,
@@ -65,8 +60,6 @@ const Register = () => {
                 }
             }
             setUserData({...userData, err: '', success: res.data.msg});
-            // localStorage.setItem("firstLogin", true);
-            // localStorage.setItem("user", res.data.access_token);
 
             window.location.href = "/";
         } catch (err) {
@@ -125,7 +118,6 @@ const Register = () => {
                         onChange={handleChangeInput}
                         value={cpassword}
                     />
-                    {/* {console.log(err)} */}
                     {err && showErrorMsg(err)}
                     {success && showSuccessMsg(success)}
                     {/* <div className="login-btn"> */}

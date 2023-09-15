@@ -4,9 +4,6 @@ import '../../styles/navbar.css';
 import Logout from '../logout';
 import Search from './Search';
 import { Link } from 'react-router-dom';
-import { categorys } from '../../utils/categorys';
-import jwt from 'jsonwebtoken';
-import { getDataAPI } from '../../utils/fetchData';
 import logo from '../../images/Shell_logo.png';
 
 
@@ -18,7 +15,6 @@ const Navbar = () => {
     const id = localStorage.getItem('userid');
     useEffect(() => {
         async function fetchData() {
-            // const res = await getDataAPI(`user/${id}`);
             const res = {
                 "data": {
                     "user": {
@@ -63,15 +59,6 @@ const Navbar = () => {
                     <li className="nav__item"><Link to="/"><Logout /></Link></li>
                 </ul>
             </nav>
-            {/* <div className="category">
-                <ul className="sub__list block-domain__prices">
-                    {
-                        categorys.map(cate =>(
-                            <li className="badge" key={cate.name} onClick={() => categoryNews(cate.name)}>{cate.name}</li>
-                        ))
-                    }
-                </ul>
-            </div> */}
         </header>
     )
 };

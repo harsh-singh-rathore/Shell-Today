@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { postDataAPI } from './../utils/fetchData';
 import '../styles/logout.css';
 
 const Logout = () => {
@@ -12,7 +11,6 @@ const Logout = () => {
         localStorage.removeItem("role");
         localStorage.removeItem("name");
         localStorage.removeItem("userid");
-        //await postDataAPI('logout');
         window.location.href = "/";
     }
     

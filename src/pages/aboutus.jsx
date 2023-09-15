@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/aboutus.css';
-import { postDataAPI } from '../utils/fetchData';
 
 const Aboutus = () => {
     const state = {
@@ -16,16 +15,6 @@ const Aboutus = () => {
         const { name, value } = e.target;
         setContect({...contect, [name]: value, err: '', success: ''});
     };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await postDataAPI('addfeedback', { email, msg });
-            setContect({email: '', msg: '', success: "Feedback submitted"});
-        } catch (err) {
-            err.response.data.msg && setContect({...contect, err: err.response.data.msg});
-        }
-    }
 
     return (
         <div className="about_container">
@@ -68,11 +57,6 @@ const Aboutus = () => {
                       </span>
                   </div>
                 </div>
-                {/* <div className="about__social">
-                    <img src={instagram} alt="instagram" className="about__simg" />
-                    <img src={gmail} alt="gmail" className="about__simg" />
-                </div>
-                <p className="about__copy">©Copyright 2023 Shell Today</p> */}
             </div>
         </div>
     )
