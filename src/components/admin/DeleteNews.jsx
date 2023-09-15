@@ -5,7 +5,8 @@ import { deleteDataAPI } from './../../utils/fetchData';
 const DeleteNews = ({ setDeleteNews, n }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await deleteDataAPI(`deletenews/${n._id}`);
+        console.log(n)
+        await deleteDataAPI(`${n.articleId}`);
         window.location.href = "/admin";
     }
     return (
