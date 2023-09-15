@@ -8,8 +8,8 @@ const News_Main = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await getDataAPI('allnews');
-            setNews(res.data.news);
+            const res = await getDataAPI('NewsArticle');
+            setNews(res.data);
         }
         fetchData();
     }, [setNews]);

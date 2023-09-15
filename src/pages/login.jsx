@@ -56,21 +56,20 @@ const Login = () => {
                     'msg': 'Incorrect password'
                 }
             }
-            console.log(user)
+            // console.log(user)
             // console.log(res);
             setUserData({...userData, err: '', success: res.data.msg});
             localStorage.setItem("firstLogin", true);
             localStorage.setItem("user", res.data.access_token);
-            localStorage.setItem("username", user.data.username)
+            localStorage.setItem("email", userData.email)
             localStorage.setItem("password", user.data.password)
-            localStorage.setItem("role", user.data.rolid)
+            localStorage.setItem("role", user.data.role)
             localStorage.setItem("name", user.data.name)
             localStorage.setItem("userid", user.data.userid)
             // localStorage.setItem("user", user.data)
 
             window.location.href = "/";
         } catch (err) {
-            console.log()
             setUserData({err: 'Wrong username or password', success: ""});
             err.response.data.msg && setUserData({...userData, err: err.response.data.msg, success: ''});
         }

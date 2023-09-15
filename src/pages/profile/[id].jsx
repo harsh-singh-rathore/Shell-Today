@@ -5,6 +5,7 @@ import EditUser from '../../components/EditUser';
 import '../../styles/userprofile.css';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import logo from '../../images/pp.jpg';
 
 const User = () => {
     const { id } = useParams();
@@ -15,11 +16,17 @@ const User = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await getDataAPI(`user/${id}`);
-            setUser(res.data.user);
-            const res1 = await getDataAPI('getSavedNews', localStorage.getItem("user"));
-            setSaveNews(res1.data.saveNews);
-            setLen(res1.data.saveNews.length);
+            // const res = await getDataAPI(`user/${id}`);
+            const user = {
+                'username': localStorage.getItem('name'),
+                'email': localStorage.getItem('email'),
+                'userid': localStorage.getItem('userid')
+            }
+            setUser(user);
+            console.log(user)
+            // const res1 = await getDataAPI('getSavedNews', localStorage.getItem("user"));
+            // setSaveNews(res1.data.saveNews);
+            // setLen(res1.data.saveNews.length);
         };
         fetchData();
     }, [id]);
@@ -28,17 +35,17 @@ const User = () => {
     return (
         <div className="user__con">
             <div className="user__container">
-                <img className= "user__image"src={user.avatar} alt="" />
+                <img className= "user__image"src={logo} alt="" />
                 <div className="user__details">
                 <h2 className="user__name">{user.username}</h2>
                 <h2 className="user__email">{user.email}</h2>
-                <h2 className="user__website">{user.website}</h2>
-                <h2 >Create at {moment(user.createdAt).fromNow()}</h2>
+                <h2 className="user__website">{user.userid}</h2>
+                {/* <h2 >Create at {moment(user.createdAt).fromNow()}</h2> */}
                 </div>
-                <button className="homecard__btn" onClick={() => setEditUser(true)}>Edit Profile</button>
+                {/* <button className="homecard__btn" onClick={() => setEditUser(true)}>Edit Profile</button>
                 {
                     editUser && <EditUser setEditUser={setEditUser} userInfo={user}/>
-                }
+                } */}
             </div>
             <div className="saved__container">
                 <h2 className="saved__title">Saved News:</h2>

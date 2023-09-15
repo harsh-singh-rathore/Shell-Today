@@ -12,9 +12,10 @@ import logo from '../../images/Shell_logo.png';
 
 const Navbar = () => {
     const [user, setUser] = useState([]);
-    const { role } = user; 
-    // const id = jwt.decode(localStorage.getItem("user")).id;
-    const id = 1;
+    const role  = localStorage.getItem('role'); 
+    console.log("CHEDCK THE ROLE HERE")
+    console.log(role)
+    const id = localStorage.getItem('userid');
     useEffect(() => {
         async function fetchData() {
             // const res = await getDataAPI(`user/${id}`);
@@ -56,8 +57,7 @@ const Navbar = () => {
                     <li className="nav__item"><Link to="/">News</Link></li>
                     <li className="nav__item"><Link to="/aboutus">About US</Link></li>
                     {
-                        role === "admin" &&
-                        <li className="nav__item"><Link to='/admin'>Admin</Link></li>
+                        role==1 && <li className="nav__item"><Link to='/admin'>Admin</Link></li>
                     }
                     <li className="nav__item"><Link to={`/profile/${id}`}>Profile</Link></li>
                     <li className="nav__item"><Link to="/"><Logout /></Link></li>
